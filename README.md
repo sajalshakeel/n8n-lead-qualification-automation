@@ -78,3 +78,8 @@ Project workflow and execution evidence are available in the `screenshots/` fold
 ## Notes
 
 This project was developed as a practical automation project to demonstrate workflow design, conditional processing, data storage, and automated notifications using n8n.
+
+
+## Workflow
+
+![n8n Lead Qualification Automation Workflow](screenshots/Lead_Qualification_Automation_Workflow.png)
