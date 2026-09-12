@@ -2,83 +2,79 @@
 
 An automated lead management workflow built with n8n that collects lead information, evaluates lead quality, stores leads in Google Sheets, and sends automated Gmail notifications.
 
+## Overview
+
+This project demonstrates a simple lead qualification and notification workflow using n8n.
+
+When a lead submits the form, the workflow checks the lead information and separates the lead into two paths:
+
+- Qualified Lead
+- Low Priority Lead
+
+The lead information is then stored in Google Sheets and an automated email notification is sent through Gmail.
+
 ## Workflow
 
 Form Submission
-→ Qualification Check
-→ Qualified / Low Priority
-→ Google Sheets
-→ Gmail Notification
+↓
+Check Qualification
+↓
+├── Qualified Lead → Google Sheets → Gmail Notification
+│
+└── Low Priority Lead → Google Sheets → Gmail Notification
 
-## Features
+## Key Features
 
-- Automated lead collection
+- Lead information collection through an n8n form
 - Lead qualification using conditional logic
 - Separate handling for qualified and low-priority leads
-- Google Sheets data storage
+- Automatic Google Sheets record creation
 - Automated Gmail notifications
-- End-to-end workflow automation
+- Workflow-based lead management
 
-## Qualification Logic
-
-A lead is classified as **Qualified** when:
-
-- Budget >= 2000
-- Employees >= 10
-
-Both conditions must be satisfied.
-
-Leads that do not meet the qualification criteria are routed through the **Low Priority** branch.
-
-## Tools & Technologies
+## Technologies Used
 
 - n8n
-- Form Trigger
-- IF Node
+- Webhooks / Form Trigger
 - Google Sheets
 - Gmail
+- Conditional Logic
 - Workflow Automation
-- API Integration
 
 ## Workflow Structure
 
-```text
-Form Submission
-       |
-       v
-Qualification Check
-     /     \
- Qualified  Low Priority
-    |          |
- Google Sheets Google Sheets
-    |          |
- Gmail        Gmail
-```
+### 1. Form Submission
+Collects the lead information submitted through the form.
 
-## Project Structure
+### 2. Check Qualification
+Evaluates the submitted lead information and routes the lead based on the qualification condition.
 
-```text
-n8n-lead-qualification-automation/
-│
-├── README.md
-├── workflow/
-│   └── Lead_Qualification_Automation_System_GitHub.json
-│
-├── screenshots/
-│   └── Lead_Qualification_Automation_Workflow.png
-│
-└── docs/
-    └── Lead_Qualification_Automation_Project_Notes.pdf
-```
+### 3. Qualified Lead
+Qualified leads are processed through the qualified-lead path, recorded in Google Sheets, and followed by an automated Gmail notification.
 
-## Workflow Screenshot
+### 4. Low Priority Lead
+Leads that do not meet the qualification condition are processed through the low-priority path, recorded in Google Sheets, and followed by an automated Gmail notification.
 
-![Workflow](screenshots/Lead_Qualification_Automation_Workflow.png)
+## Project Files
 
-## Documentation
+- `workflow/` — Contains the exported n8n workflow JSON.
+- `screenshots/` — Contains workflow execution and output screenshots.
+- `README.md` — Project documentation.
 
-Detailed project documentation is available in the `docs` folder.
+## Screenshots
 
-## Result
+Project workflow and execution evidence are available in the `screenshots/` folder.
 
-Successfully implemented an automated lead-processing workflow that classifies incoming leads, records the results in Google Sheets, and sends email notifications automatically.
+## How to Use
+
+1. Import the workflow JSON file into n8n.
+2. Configure your Google Sheets credentials.
+3. Configure your Gmail credentials.
+4. Review the qualification condition.
+5. Test the workflow using the form.
+6. Verify the lead record in Google Sheets.
+7. Verify the notification email in Gmail.
+
+## Notes
+
+This project was developed as a practical automation project to demonstrate workflow design, conditional processing, data storage, and automated notifications using n8n.
